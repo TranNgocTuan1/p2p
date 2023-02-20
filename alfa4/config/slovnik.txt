@@ -1,0 +1,5 @@
+park:park
+teenager:teenager
+robot:robot
+program:program
+gang:gang
