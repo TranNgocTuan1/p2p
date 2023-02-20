@@ -19,7 +19,7 @@ class Local:
     :param client: client to send response to
     :param word: word to translate
     """
-    def translate_local(self, client, word, log):
+    def translate_local(self, client, word):
         try:
             mess = bytes('TRANSLATEDSUC\"'+ self.dictionary[word] +'\"\r\n', "utf-8")
             client.conn.send(mess)

@@ -27,7 +27,28 @@ in the folder /config there are two files.
 
 slovnik.txt = is for words and their translation.
 
-ipAporty.txt = is for range of IP addresses and ports
+format for this file is english_word:translation
+```text
+park:park
+teenager:teenager
+robot:robot
+program:program
+gang:gang
+```
+
+In file config.ini
+```ini
+[server-listen]
+ip=127.0.0.1 #ip of the server (this computer) format: x.x.x.x
+port=65435 #port of the server fromat: num 
+
+[ip-and-port-range]
+ip=10.0.1.20-10.0.1.23 #range of IP addresses to scan strict format: x.x.x.x-x.x.x.x
+port=65435-65436 #range of ports to scan strict format: num-num
+```
+#
+
+
 
 # windows
 you configure the two files in /config and run the alfa4/src/main.py and its done
@@ -74,6 +95,7 @@ in windown go to cmd and type
 python /path/to/script/main.py
 ```
 afther that open putty and connect to the server
+
 note: nothing should happen in the console after that
 
 #
@@ -86,7 +108,7 @@ and if not as a daemon
 ```
 python /path/to/script/main.py
 ```
-and in new terminal open putty or telnet
+and open putty or telnet
 
 #
 # Controls
