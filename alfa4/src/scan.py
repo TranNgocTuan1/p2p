@@ -57,8 +57,9 @@ class Scan:
                     break
                 if str(i[0]) != "127.0.0.1" and str(i[0]) != client.conn.getsockname()[0]:
                     client_socket.close()
-            except:
-                pass
+            except Exception as e:
+                if str(e) != 'timed out':
+                    logging.error(e)
         if not translate:
             client.conn.send(bytes('TRANSLATEDERR"slovo neslo prelozit"\r\n', "utf-8"))
             logging.error(str(client.ip) + f"=translate {word} from scan not successfull")

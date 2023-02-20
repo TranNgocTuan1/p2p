@@ -9,7 +9,6 @@ class Ping():
     """
     def ping(self, client, data):
         try:
-            print(client.ip)
             client.conn.send(bytes('TRANSLATEPONG\"Tuanuv slovnik\"\r\n', "utf-8"))
             logging.info(str(client.ip)+"=client ping success")
         except:

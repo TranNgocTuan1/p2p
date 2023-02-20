@@ -1,10 +1,10 @@
 import socket
 import logging
 from threading import Thread
-from client import Client
-from local import Local
-from scan import Scan
-from ping import Ping
+from src.client import Client
+from src.local import Local
+from src.scan import Scan
+from src.ping import Ping
 from configparser import ConfigParser
 import os
 
@@ -18,17 +18,17 @@ class Tcp:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         filename = os.path.join(script_dir, '../log/log.log')
         config.read(os.path.join(script_dir, '../config/config.ini'))
+        logging.basicConfig(filename=filename, level=logging.INFO)
+
         self.local = Local()
         self.ping = Ping()
         self.scan = Scan()
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        self.filename = os.path.join(script_dir, '../log/log.log')
-        logging.basicConfig(filename=filename, level=logging.INFO)
         self.commands = {
             "TRANSLATELOCL" : self.local.translate_local,
             "TRANSLATESCAN" : self.scan.scan_net,
             "TRANSLATEPING" : self.ping.ping
         }
+
         server_inet_address = (config.get('server-listen', 'ip'), int(str.strip(config.get('server-listen', 'port'))))
         self._isRunning = True
         self.server_socket = socket.socket()
@@ -51,7 +51,7 @@ class Tcp:
                 x.start()
 
             except Exception as e:
-                pass
+                logging.error(e)
     """
     A method for client service
     :param client: client
@@ -67,6 +67,5 @@ class Tcp:
                     logging.info(str(client.ip)+'=client disconnected')
                     break
             except Exception as e:
-                print(e)
                 client.conn.send(bytes('TRANSLATEDERR\"neco se pokazilo\"\r\n', "utf-8"))
         client.conn.close()

@@ -1,0 +1,12 @@
+INFO:root:('127.0.0.1', 54047)=client connected
+INFO:root:('127.0.0.1', 54047)=client ping success
+INFO:root:('127.0.0.1', 54047)=clients word translated
+ERROR:root:('127.0.0.1', 54047)=translate house from scan not successfull
+INFO:root:('127.0.0.1', 54047)=client disconnected
+INFO:root:('127.0.0.1', 54123)=client connected
+ERROR:root:('127.0.0.1', 54123)=translate house from scan not successfull
+INFO:root:('127.0.0.1', 54123)=client disconnected
+INFO:root:('127.0.0.1', 54371)=client connected
+ERROR:root:('127.0.0.1', 54371)=translate house from scan not successfull
+INFO:root:('127.0.0.1', 54673)=client connected
+ERROR:root:('127.0.0.1', 54673)=translate house from scan not successfull
